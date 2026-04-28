@@ -3,21 +3,23 @@ const { useState: useS2, useEffect: useE2, useRef: useR2 } = React;
 
 function AgenticFlow() {
   const [tick, setTick] = useS2(0);
+  const { lang, t } = useI18n();
   useE2(() => {
     const id = setInterval(() => setTick((t) => t + 1), 80);
     return () => clearInterval(id);
   }, []);
 
+  const isEs = lang === "es";
   // Nodes: input -> [planner, researcher, executor, validator] -> output
   const nodes = [
-  { id: "in", x: 60, y: 180, label: "Entrada", sub: "Lead / Pedido", kind: "io" },
-  { id: "plan", x: 240, y: 80, label: "Planner", sub: "Decompõe tarefa", kind: "agent" },
-  { id: "rag", x: 240, y: 180, label: "RAG", sub: "Contexto + dados", kind: "agent" },
-  { id: "tool", x: 240, y: 280, label: "Tools", sub: "APIs + execução", kind: "agent" },
-  { id: "orch", x: 460, y: 180, label: "Orquestrador", sub: "OpenClaw", kind: "core" },
-  { id: "val", x: 660, y: 100, label: "Validador", sub: "Quality gate", kind: "agent" },
-  { id: "exec", x: 660, y: 260, label: "Executor", sub: "Ação no negócio", kind: "agent" },
-  { id: "out", x: 840, y: 180, label: "Resultado", sub: "CRM / WhatsApp", kind: "io" }];
+  { id: "in", x: 60, y: 180, label: isEs ? "Entrada" : "Entrada", sub: isEs ? "Lead / Pedido" : "Lead / Pedido", kind: "io" },
+  { id: "plan", x: 240, y: 80, label: "Planner", sub: isEs ? "Descompone tarea" : "Decompõe tarefa", kind: "agent" },
+  { id: "rag", x: 240, y: 180, label: "RAG", sub: isEs ? "Contexto + datos" : "Contexto + dados", kind: "agent" },
+  { id: "tool", x: 240, y: 280, label: "Tools", sub: isEs ? "APIs + ejecución" : "APIs + execução", kind: "agent" },
+  { id: "orch", x: 460, y: 180, label: isEs ? "Orquestador" : "Orquestrador", sub: "OpenClaw", kind: "core" },
+  { id: "val", x: 660, y: 100, label: isEs ? "Validador" : "Validador", sub: "Quality gate", kind: "agent" },
+  { id: "exec", x: 660, y: 260, label: isEs ? "Ejecutor" : "Executor", sub: isEs ? "Acción en el negocio" : "Ação no negócio", kind: "agent" },
+  { id: "out", x: 840, y: 180, label: isEs ? "Resultado" : "Resultado", sub: "CRM / WhatsApp", kind: "io" }];
 
   const edges = [
   ["in", "plan"], ["in", "rag"], ["in", "tool"],
@@ -105,10 +107,10 @@ function AgenticFlow() {
       <div style={{ position: "absolute", left: 16, bottom: 14, right: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <span className="pulse-dot" style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--lime)" }}></span>
-          <span className="mono" style={{ fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.15em", textTransform: "uppercase" }}>Sistema agêntico ativo</span>
+          <span className="mono" style={{ fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.15em", textTransform: "uppercase" }}>{t("cons.system.active")}</span>
         </div>
         <div className="mono" style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em" }}>
-          {(1240 + tick % 80).toString()} req/min · 99.8% uptime
+          {(1240 + tick % 80).toString()} {t("cons.metrics")}
         </div>
       </div>
     </div>);
@@ -116,11 +118,13 @@ function AgenticFlow() {
 }
 
 function ConsultingSection() {
+  const { t, lang } = useI18n();
   const pillars = [
-  { n: "01", t: "Diagnóstico Estratégico", d: "Mapeamos seus processos, gargalos e pontos de alavancagem para IA.", k: "DIAG" },
-  { n: "02", t: "Arquitetura de IA Vertical", d: "Desenhamos a infraestrutura sob medida para seu setor e escala.", k: "ARCH" },
-  { n: "03", t: "Implementação Sênior", d: "Time dedicado constrói, integra e valida cada sistema crítico.", k: "BUILD" },
-  { n: "04", t: "Acompanhamento Contínuo", d: "Otimização mensal, novos agentes e expansão da operação inteligente.", k: "OPS" }];
+    { n: "01", t: t("cons.p1.t"), d: t("cons.p1.d"), k: "DIAG" },
+    { n: "02", t: t("cons.p2.t"), d: t("cons.p2.d"), k: "ARCH" },
+    { n: "03", t: t("cons.p3.t"), d: t("cons.p3.d"), k: "BUILD" },
+    { n: "04", t: t("cons.p4.t"), d: t("cons.p4.d"), k: "OPS" },
+  ];
 
   return (
     <section style={{ padding: "120px 32px", borderTop: "1px solid var(--line)", position: "relative", overflow: "hidden" }}>
@@ -133,19 +137,17 @@ function ConsultingSection() {
               <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
                 <span style={{ width: 32, height: 1, background: "var(--line-strong)" }}></span>
                 <span className="mono" style={{ fontSize: 11, color: "var(--lime)", textTransform: "uppercase", letterSpacing: "0.3em" }}>
-                  {window.useI18n ? window.useI18n().t("cons.eyebrow") : "★ Especialidade"}
+                  {t("cons.eyebrow")}
                 </span>
               </div>
               <h2 className="display" style={{ fontSize: "clamp(40px, 5.5vw, 72px)", maxWidth: 800 }}>
-                Consultoria em <span className="serif-it" style={{ color: "var(--lime)" }}>IA Agêntica</span> para empresas que pensam grande.
+                {t("cons.title.a")} <span className="serif-it" style={{ color: "var(--lime)" }}>{t("cons.title.b")}</span> {t("cons.title.c")}
               </h2>
               <p style={{ fontSize: 16, color: "var(--text-dim)", maxWidth: 620, marginTop: 24, lineHeight: 1.6 }}>
-                Não entregamos só ferramentas. Sentamos com sua liderança, mapeamos a operação e construímos
-                uma infraestrutura de IA <em style={{ color: "#fff", fontStyle: "normal" }}>vertical</em> — feita sob medida
-                para o seu setor, suas regras e seus dados.
+                {t("cons.lead")}
               </p>
             </div>
-            <FormButton className="btn-primary">{window.useI18n ? window.useI18n().t("btn.book.consulting") : "Agendar consultoria"} <KArrow size={12} color="#000" /></FormButton>
+            <FormButton className="btn-primary">{t("btn.book.consulting")} <KArrow size={12} color="#000" /></FormButton>
           </div>
         </Reveal>
 

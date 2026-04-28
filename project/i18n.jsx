@@ -6,7 +6,7 @@ const WA_MSG = {
   pt: "Wagner, vi o site da Konnecta. Quero entender como a IA pode resolver [meu desafio] na minha empresa.",
   es: "Wagner, vi el sitio de Konnecta. Quiero entender cómo la IA puede resolver [mi desafío] en mi empresa.",
 };
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xwagnergv8"; // placeholder — instructions below
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqewvddo";
 
 function waLink(lang = "pt", custom) {
   const msg = custom || WA_MSG[lang] || WA_MSG.pt;

@@ -1752,6 +1752,22 @@ function Testimonials() {
 
 // === FINAL CTA ===
 function FinalCTA() {
+  const { lang, t } = useI18n();
+  const copy = lang === "pt" ? {
+    eyebrow: "Pronto para transformar?",
+    title: <>Vamos construir o futuro<br/>da sua empresa <span style={{ color: "var(--lime)" }}>juntos?</span></>,
+    sub: "Agende um diagnóstico gratuito e descubra como a IA pode revolucionar seus resultados.",
+    bannerEyebrow: t("fcta.banner.eyebrow"),
+    bannerTitle: t("fcta.banner.title"),
+    bannerSub: t("fcta.banner.sub"),
+  } : {
+    eyebrow: "¿Listo para transformar?",
+    title: <>Construyamos el futuro<br/>de tu empresa <span style={{ color: "var(--lime)" }}>juntos?</span></>,
+    sub: "Agendá un diagnóstico gratuito y descubrí cómo la IA puede revolucionar tus resultados.",
+    bannerEyebrow: t("fcta.banner.eyebrow"),
+    bannerTitle: t("fcta.banner.title"),
+    bannerSub: t("fcta.banner.sub"),
+  };
   return (
     <>
     <section style={{ padding: "120px 32px", borderTop: "1px solid var(--line)" }}>
@@ -1759,17 +1775,16 @@ function FinalCTA() {
         <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 60, alignItems: "center" }} className="grid-2-stack">
           <Reveal>
             <div>
-              <span className="eyebrow" style={{ marginBottom: 24 }}>Pronto para transformar?</span>
+              <span className="eyebrow" style={{ marginBottom: 24 }}>{copy.eyebrow}</span>
               <h2 className="display" style={{ fontSize: "clamp(40px, 5.5vw, 72px)", marginTop: 16, marginBottom: 24 }}>
-                Vamos construir o futuro<br/>
-                da sua empresa <span style={{ color: "var(--lime)" }}>juntos?</span>
+                {copy.title}
               </h2>
               <p style={{ fontSize: 16, color: "var(--text-dim)", lineHeight: 1.6, marginBottom: 32, maxWidth: 480 }}>
-                Agende um diagnóstico gratuito e descubra como a IA pode revolucionar seus resultados.
+                {copy.sub}
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <FormButton className="btn-primary">{useI18n().t("btn.book.free")} <KArrow size={12} color="#000" /></FormButton>
-                <WaButton className="btn-secondary">{useI18n().t("btn.whatsapp")} <Icon.whats c="#fff" s={14} /></WaButton>
+                <FormButton className="btn-primary">{t("btn.book.free")} <KArrow size={12} color="#000" /></FormButton>
+                <WaButton className="btn-secondary">{t("btn.whatsapp")} <Icon.whats c="#fff" s={14} /></WaButton>
               </div>
             </div>
           </Reveal>
@@ -1794,13 +1809,13 @@ function FinalCTA() {
                 <Icon.spark c="#CBFF00" s={26} />
               </div>
               <div>
-                <div className="mono" style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 4 }}>Diagnóstico gratuito</div>
-                <div className="display" style={{ fontSize: 22, color: "#000" }}>Descubra o potencial da IA na sua empresa</div>
-                <div style={{ fontSize: 13, marginTop: 4, color: "rgba(0,0,0,0.6)" }}>Em uma consultoria personalizada de 30 minutos</div>
+                <div className="mono" style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 4 }}>{copy.bannerEyebrow}</div>
+                <div className="display" style={{ fontSize: 22, color: "#000" }}>{copy.bannerTitle}</div>
+                <div style={{ fontSize: 13, marginTop: 4, color: "rgba(0,0,0,0.6)" }}>{copy.bannerSub}</div>
               </div>
             </div>
-            <a href={waLink(useI18n().lang)} target="_blank" rel="noopener" style={{ background: "#000", color: "#CBFF00", padding: "14px 28px", borderRadius: 999, fontWeight: 600, fontSize: 14, display: "inline-flex", alignItems: "center", gap: 10, position: "relative", zIndex: 1, textDecoration: "none" }}>
-              {useI18n().t("btn.book.now")} <KArrow size={12} color="#CBFF00" />
+            <a href={waLink(lang)} target="_blank" rel="noopener" style={{ background: "#000", color: "#CBFF00", padding: "14px 28px", borderRadius: 999, fontWeight: 600, fontSize: 14, display: "inline-flex", alignItems: "center", gap: 10, position: "relative", zIndex: 1, textDecoration: "none" }}>
+              {t("btn.book.now")} <KArrow size={12} color="#CBFF00" />
             </a>
           </div>
         </Reveal>
@@ -1811,6 +1826,7 @@ function FinalCTA() {
 }
 
 function PortraitCard() {
+  const { t } = useI18n();
   return (
     <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", aspectRatio: "4/5", background: "#050505", border: "1px solid var(--line)" }}>
       <img src="assets/founder.png" alt="Fundador Konnecta" style={{
@@ -1831,7 +1847,7 @@ function PortraitCard() {
       {/* corner mark */}
       <div style={{ position: "absolute", top: 18, left: 18, display: "flex", alignItems: "center", gap: 8 }}>
         <KMark size={22} color="#CBFF00" />
-        <span className="mono" style={{ fontSize: 10, color: "rgba(255,255,255,0.65)", letterSpacing: "0.2em", textTransform: "uppercase" }}>Wagner Verçosa · Fundador</span>
+        <span className="mono" style={{ fontSize: 10, color: "rgba(255,255,255,0.65)", letterSpacing: "0.2em", textTransform: "uppercase" }}>{t("founder.label")}</span>
       </div>
       <div style={{ position: "absolute", top: 18, right: 18 }}>
         <span className="pulse-dot" style={{ display: "inline-block", width: 8, height: 8, borderRadius: "50%", background: "var(--lime)" }}></span>
@@ -1839,8 +1855,8 @@ function PortraitCard() {
       {/* bottom info */}
       <div style={{ position: "absolute", bottom: 20, left: 20, right: 20, display: "flex", justifyContent: "space-between", alignItems: "flex-end", zIndex: 2 }}>
         <div>
-          <div className="display" style={{ fontSize: 18, color: "#fff", marginBottom: 2 }}>{useI18n().t("founder.title")}</div>
-          <div className="mono" style={{ fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.15em", textTransform: "uppercase" }}>Konnecta · Foz do Iguaçu / CDE</div>
+          <div className="display" style={{ fontSize: 18, color: "#fff", marginBottom: 2 }}>{t("founder.title")}</div>
+          <div className="mono" style={{ fontSize: 10, color: "rgba(255,255,255,0.55)", letterSpacing: "0.15em", textTransform: "uppercase" }}>{t("founder.location")}</div>
         </div>
         <div style={{ width: 32, height: 32, borderRadius: "50%", background: "var(--lime)", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <KArrow size={12} color="#000" />
@@ -1852,10 +1868,15 @@ function PortraitCard() {
 
 // === FOOTER ===
 function Footer() {
-  const cols = [
-    { title: "Soluções", links: ["Agentes de IA", "Automação WhatsApp", "CRM Inteligente", "Qualificação de Leads", "ERP & Integrações", "Dashboards & BI"] },
-    { title: "Empresa", links: ["Sobre Nós", "Cases", "Carreiras", "Contato"] },
-    { title: "Recursos", links: ["Blog", "Materiais Gratuitos", "Webinars", "Documentação", "API", "Suporte"] },
+  const { lang, t } = useI18n();
+  const cols = lang === "pt" ? [
+    { title: t("footer.col.solutions"), links: ["Agentes de IA", "Automação WhatsApp", "CRM Inteligente", "Qualificação de Leads", "ERP & Integrações", "Dashboards & BI"] },
+    { title: t("footer.col.company"), links: [t("footer.l.about"), t("footer.l.cases"), t("footer.l.career"), t("footer.l.contact")] },
+    { title: t("footer.col.resources"), links: [t("footer.l.blog"), t("footer.l.materials"), t("footer.l.docs"), t("footer.l.support")] },
+  ] : [
+    { title: t("footer.col.solutions"), links: ["Agentes de IA", "Automatización WhatsApp", "CRM Inteligente", "Calificación de Leads", "ERP & Integraciones", "Dashboards & BI"] },
+    { title: t("footer.col.company"), links: [t("footer.l.about"), t("footer.l.cases"), t("footer.l.career"), t("footer.l.contact")] },
+    { title: t("footer.col.resources"), links: [t("footer.l.blog"), t("footer.l.materials"), t("footer.l.docs"), t("footer.l.support")] },
   ];
   return (
     <footer style={{ borderTop: "1px solid var(--line)", padding: "80px 32px 32px", background: "linear-gradient(180deg, transparent, rgba(203,255,0,0.02))" }}>
@@ -1864,7 +1885,7 @@ function Footer() {
           <div>
             <KonnectaWord size={26} color="#fff" />
             <p style={{ fontSize: 13, color: "var(--text-dim)", lineHeight: 1.6, marginTop: 20, marginBottom: 24, maxWidth: 320 }}>
-              {useI18n().t("footer.about")}
+              {t("footer.about")}
             </p>
             <div style={{ fontSize: 12, color: "var(--text-dim)", lineHeight: 1.7, marginBottom: 20 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -1874,7 +1895,7 @@ function Footer() {
                 <span style={{ color: "var(--lime)" }}>PY</span> Ciudad del Este
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 6 }}>
-                <a href={waLink(useI18n().lang)} target="_blank" rel="noopener" style={{ color: "#fff", textDecoration: "none" }}>+55 45 99963-7457</a>
+                <a href={waLink(lang)} target="_blank" rel="noopener" style={{ color: "#fff", textDecoration: "none" }}>+55 45 99963-7457</a>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <a href="mailto:wagnergv8@gmail.com" style={{ color: "#fff", textDecoration: "none" }}>wagnergv8@gmail.com</a>
@@ -1903,11 +1924,11 @@ function Footer() {
         </div>
         <div style={{ paddingTop: 24, borderTop: "1px solid var(--line)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)" }}>
-            {useI18n().t("footer.rights")}
+            {t("footer.rights")}
           </div>
           <div style={{ display: "flex", gap: 20 }}>
-            <a className="mono" style={{ fontSize: 11, color: "var(--text-faint)" }}>{useI18n().t("footer.privacy")}</a>
-            <a className="mono" style={{ fontSize: 11, color: "var(--text-faint)" }}>{useI18n().t("footer.terms")}</a>
+            <a className="mono" style={{ fontSize: 11, color: "var(--text-faint)" }}>{t("footer.privacy")}</a>
+            <a className="mono" style={{ fontSize: 11, color: "var(--text-faint)" }}>{t("footer.terms")}</a>
           </div>
         </div>
       </div>
