@@ -16,7 +16,7 @@ function AgenticFlow() {
   { id: "plan", x: 240, y: 80, label: "Planner", sub: isEs ? "Descompone tarea" : "Decompõe tarefa", kind: "agent" },
   { id: "rag", x: 240, y: 180, label: "RAG", sub: isEs ? "Contexto + datos" : "Contexto + dados", kind: "agent" },
   { id: "tool", x: 240, y: 280, label: "Tools", sub: isEs ? "APIs + ejecución" : "APIs + execução", kind: "agent" },
-  { id: "orch", x: 460, y: 180, label: isEs ? "Orquestador" : "Orquestrador", sub: "OpenClaw", kind: "core" },
+  { id: "orch", x: 460, y: 180, label: isEs ? "Orquestador" : "Orquestrador", sub: isEs ? "Orquestación" : "Orquestração", kind: "core" },
   { id: "val", x: 660, y: 100, label: isEs ? "Validador" : "Validador", sub: "Quality gate", kind: "agent" },
   { id: "exec", x: 660, y: 260, label: isEs ? "Ejecutor" : "Executor", sub: isEs ? "Acción en el negocio" : "Ação no negócio", kind: "agent" },
   { id: "out", x: 840, y: 180, label: isEs ? "Resultado" : "Resultado", sub: "CRM / WhatsApp", kind: "io" }];

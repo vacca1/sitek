@@ -53,16 +53,16 @@ function Navbar() {
 // === HERO ===
 const HERO_ROTATE = {
   pt: [
-    "que vai operar sua empresa.",
-    "que pensa pelo seu time.",
-    "que escala sem contratar.",
     "que vende enquanto você dorme.",
+    "que atende mil clientes ao mesmo tempo.",
+    "que qualifica antes de você acordar.",
+    "que nunca tira férias.",
   ],
   es: [
-    "que va a operar tu empresa.",
-    "que piensa por tu equipo.",
-    "que escala sin contratar.",
     "que vende mientras dormís.",
+    "que atiende a mil clientes a la vez.",
+    "que califica antes de que despiertes.",
+    "que nunca se toma vacaciones.",
   ],
 };
 
@@ -278,21 +278,35 @@ function Sparkline({ data }) {
 }
 
 // === LOGO STRIP ===
+// Real client logos (white, transparent PNGs). Per-logo optical height keeps
+// wide wordmarks and circular badges visually balanced in the marquee.
+const CLIENT_LOGOS = [
+  { src: "assets/clientes/macedonia.png", alt: "Macedônia", h: 46 },
+  { src: "assets/clientes/grupo-capitao.png", alt: "Grupo Capitão", h: 54 },
+  { src: "assets/clientes/wonder-park.png", alt: "Wonder Park Foz", h: 50 },
+  { src: "assets/clientes/guarda-volume.png", alt: "Guarda Volume", h: 30 },
+  { src: "assets/clientes/odonto.png", alt: "Odonto Próteses", h: 48 },
+  { src: "assets/clientes/aurora.png", alt: "Aurora Patrimonial", h: 36 },
+];
+
 function LogoStrip() {
   const { lang } = useI18n();
-  const companies = ["Clínica Vitalis", "Construtora Proja", "Boutique D'Luxo", "Grupo Innova", "OdontoPrime", "Studio Forma", "Banco Nexus", "AgroSul"];
   return (
     <section style={{ padding: "60px 32px", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-        <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 32 }}>
+        <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 36 }}>
           {lang === "pt" ? "Empresas que confiam na Konnecta" : "Empresas que confían en Konnecta"}
         </div>
         <div style={{ overflow: "hidden", maskImage: "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)" }}>
-          <div className="marquee-track" style={{ display: "flex", gap: 64, width: "max-content", alignItems: "center" }}>
-            {[...companies, ...companies].map((c, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, color: "rgba(255,255,255,0.5)", fontSize: 18, fontFamily: "Space Grotesk", fontWeight: 500, letterSpacing: "-0.02em" }}>
-                <span style={{ width: 6, height: 6, background: "var(--lime)", borderRadius: "50%" }}></span>
-                {c}
+          <div className="marquee-track" style={{ display: "flex", gap: 72, width: "max-content", alignItems: "center" }}>
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
+              <div key={i} className="client-logo" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 64, flexShrink: 0 }}>
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  draggable={false}
+                  style={{ height: logo.h, width: "auto", maxWidth: 210, objectFit: "contain", opacity: 0.72, transition: "opacity 0.3s ease", userSelect: "none" }}
+                />
               </div>
             ))}
           </div>
@@ -860,7 +874,7 @@ function PlatformConversion({ lang }) {
                   </div>
                 </div>
                 <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", width: 50, textAlign: "right" }}>
-                  {i === 0 ? "—" : `${Math.round((parseFloat(s.n.replace(/\./g,"")) / parseFloat(stages[i-1].n.replace(/\./g,""))) * 100)}%`}
+                  {i === 0 ? "·" : `${Math.round((parseFloat(s.n.replace(/\./g,"")) / parseFloat(stages[i-1].n.replace(/\./g,""))) * 100)}%`}
                 </div>
               </div>
             ))}
@@ -1442,11 +1456,11 @@ function FunnelChart() {
 function CaseStudy() {
   const { lang } = useI18n();
   const L = lang === "pt" ? {
-    eyebrow: "Case de sucesso",
-    title_a: "Resultados que",
-    title_b: "falam por nós",
+    eyebrow: "Case Konnecta",
+    title_a: "Os números falam.",
+    title_b: "A gente só implementou.",
     client: "Cliente",
-    body: "Implementamos um sistema completo de automação e IA que revolucionou o atendimento e o aumento dos resultados em 90 dias.",
+    body: "Colocamos um agente de IA pra atender, qualificar e agendar sozinho. Em 90 dias o atendimento mudou de patamar e os resultados dispararam.",
     s1: "Aumento de leads",
     s2: "Custo por lead",
     s3: "Taxa de conversão",
@@ -1456,11 +1470,11 @@ function CaseStudy() {
     m2: "Conversões",
     cpl: "R$ 12,43",
   } : {
-    eyebrow: "Caso de éxito",
-    title_a: "Resultados que",
-    title_b: "hablan por nosotros",
+    eyebrow: "Caso Konnecta",
+    title_a: "Los números hablan.",
+    title_b: "Nosotros solo implementamos.",
     client: "Cliente",
-    body: "Implementamos un sistema completo de automatización e IA que revolucionó la atención y aumentó los resultados en 90 días.",
+    body: "Pusimos un agente de IA para atender, calificar y agendar solo. En 90 días la atención cambió de nivel y los resultados se dispararon.",
     s1: "Aumento de leads",
     s2: "Costo por lead",
     s3: "Tasa de conversión",
@@ -1640,19 +1654,19 @@ function Stack() {
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <Reveal>
           <div style={{ textAlign: "center", marginBottom: 32 }}>
-            <span className="eyebrow">{lang === "pt" ? "Tecnologia de ponta" : "Tecnología de punta"}</span>
+            <span className="eyebrow">{lang === "pt" ? "A engenharia por trás" : "La ingeniería por detrás"}</span>
             <h2 className="display" style={{ fontSize: "clamp(36px, 5vw, 64px)", marginTop: 16 }}>
-              {lang === "pt" ? <>IA Agêntica, <span className="serif-it" style={{ color: "var(--lime)" }}>OpenClaw</span> e o melhor do mercado</> : <>IA Agéntica, <span className="serif-it" style={{ color: "var(--lime)" }}>OpenClaw</span> y lo mejor del mercado</>}
+              {lang === "pt" ? <>IA Agêntica de verdade, <span className="serif-it" style={{ color: "var(--lime)" }}>com o que existe de melhor</span> no mundo.</> : <>IA Agéntica de verdad, <span className="serif-it" style={{ color: "var(--lime)" }}>con lo que existe de mejor</span> en el mundo.</>}
             </h2>
             <p style={{ fontSize: 15, color: "var(--text-dim)", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6 }}>
-              {lang === "pt" ? "Construímos sistemas com agentes autônomos, multi-modelo e orquestração avançada. Trabalhamos com as principais plataformas de IA do mundo." : "Construimos sistemas con agentes autónomos, multi-modelo y orquestación avanzada. Trabajamos con las principales plataformas de IA del mundo."}
+              {lang === "pt" ? "Agentes autônomos, vários modelos trabalhando juntos e orquestração avançada. A gente não casa com fornecedor. Usa só o que traz resultado." : "Agentes autónomos, varios modelos trabajando juntos y orquestación avanzada. No nos casamos con ningún proveedor. Usamos solo lo que trae resultado."}
             </p>
           </div>
         </Reveal>
 
         <Reveal delay={100}>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 8, marginBottom: 56 }}>
-            {(lang === "pt" ? ["IA Agêntica", "OpenClaw", "Multi-Agent Systems", "RAG", "Function Calling", "Vector DBs", "MCP", "Tool Use", "LLM Orchestration"] : ["IA Agéntica", "OpenClaw", "Multi-Agent Systems", "RAG", "Function Calling", "Vector DBs", "MCP", "Tool Use", "LLM Orchestration"]).map((c) => (
+            {(lang === "pt" ? ["IA Agêntica", "Multi-Agent Systems", "RAG", "Function Calling", "Vector DBs", "MCP", "Tool Use", "LLM Orchestration"] : ["IA Agéntica", "Multi-Agent Systems", "RAG", "Function Calling", "Vector DBs", "MCP", "Tool Use", "LLM Orchestration"]).map((c) => (
               <span key={c} className="tag lime" style={{ fontSize: 11, padding: "6px 14px" }}>{c}</span>
             ))}
           </div>
@@ -1889,7 +1903,7 @@ function Footer() {
             </p>
             <div style={{ fontSize: 12, color: "var(--text-dim)", lineHeight: 1.7, marginBottom: 20 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ color: "var(--lime)" }}>BR</span> Foz do Iguaçu — PR
+                <span style={{ color: "var(--lime)" }}>BR</span> Foz do Iguaçu, PR
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ color: "var(--lime)" }}>PY</span> Ciudad del Este

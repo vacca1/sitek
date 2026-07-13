@@ -34,7 +34,7 @@ const T = {
     "hero.title.1": "",
     "hero.title.2": "Construímos a infraestrutura de IA",
     "hero.title.3": "que vai operar sua empresa.",
-    "hero.sub": "Agentes autônomos, automações e integrações sob medida para o seu setor. Você lidera. A IA opera.",
+    "hero.sub": "Seu concorrente responde um lead em horas. O seu agente responde em 30 segundos: qualifica, agenda e fecha. Todo dia, sem contratar mais ninguém.",
     "hero.stat.1.n": "+50",
     "hero.stat.1.l": "Operações automatizadas",
     "hero.stat.2.n": "+2.5M",
@@ -86,7 +86,7 @@ const T = {
     "cons.title.a": "Consultoria em",
     "cons.title.b": "IA agêntica",
     "cons.title.c": "para empresas que pensam grande.",
-    "cons.lead": "Não vendemos ferramenta. Sentamos com a liderança, mapeamos onde sua operação sangra dinheiro e construímos uma infraestrutura de IA vertical — feita sob medida para o seu setor, suas regras e seus dados.",
+    "cons.lead": "Não vendemos ferramenta. Sentamos com a liderança, mapeamos onde sua operação sangra dinheiro e construímos uma infraestrutura de IA vertical, feita sob medida para o seu setor, suas regras e seus dados.",
     "cons.cta": "Agendar consultoria",
     "cons.system.active": "Sistema agêntico ativo",
     "cons.metrics": "req/min · 99.8% uptime",
@@ -118,7 +118,7 @@ const T = {
     "plat.eyebrow": "Plataforma Konnecta",
     "plat.title.a": "Tudo conectado.",
     "plat.title.b": "Em uma tela.",
-    "plat.sub": "Vendas, atendimento, operação e dados conversando entre si — sem você ter que abrir 7 abas.",
+    "plat.sub": "Vendas, atendimento, operação e dados conversando entre si, sem você precisar abrir 7 abas.",
 
     // CASE
     "case.eyebrow": "Case Konnecta",
@@ -130,10 +130,10 @@ const T = {
 
     // STACK
     "stack.eyebrow": "Stack",
-    "stack.title.a": "IA agêntica,",
-    "stack.title.b": "OpenClaw",
-    "stack.title.c": "e o melhor do mercado.",
-    "stack.sub": "Trabalhamos com agentes autônomos, multi-modelo e orquestração avançada. Sem fidelidade a fornecedor — só com o que funciona.",
+    "stack.title.a": "IA agêntica de verdade,",
+    "stack.title.b": "com o que existe de melhor",
+    "stack.title.c": "no mundo.",
+    "stack.sub": "Trabalhamos com agentes autônomos, multi-modelo e orquestração avançada. A gente não casa com fornecedor, usa só o que traz resultado.",
 
     // TESTIMONIALS
     "tst.eyebrow": "Quem já está rodando",
@@ -159,7 +159,7 @@ const T = {
     "form.size": "Porte da empresa",
     "form.size.opts": ["Selecione...", "Até 10 funcionários", "11 a 50", "51 a 200", "201 a 500", "Mais de 500"],
     "form.area": "O que você precisa resolver?",
-    "form.area.opts": ["Consultoria estratégica em IA", "Agente de IA / SDR automatizado", "Automação no WhatsApp", "CRM com IA", "Qualificação de leads", "Integração de sistemas (ERP)", "Ainda não sei — quero conversar"],
+    "form.area.opts": ["Consultoria estratégica em IA", "Agente de IA / SDR automatizado", "Automação no WhatsApp", "CRM com IA", "Qualificação de leads", "Integração de sistemas (ERP)", "Ainda não sei, quero conversar"],
     "form.message": "Me conta seu cenário (opcional)",
     "form.consent": "Posso receber contato sobre minha solicitação",
     "form.submit": "Enviar para Wagner",
@@ -212,7 +212,7 @@ const T = {
     "hero.title.1": "",
     "hero.title.2": "Construimos la infraestructura de IA",
     "hero.title.3": "que va a operar tu empresa.",
-    "hero.sub": "Agentes autónomos, automatizaciones e integraciones a medida para tu sector. Vos liderás. La IA opera.",
+    "hero.sub": "Tu competencia responde un lead en horas. Tu agente responde en 30 segundos: califica, agenda y cierra. Todos los días, sin contratar a nadie más.",
     "hero.stat.1.n": "+50",
     "hero.stat.1.l": "Operaciones automatizadas",
     "hero.stat.2.n": "+2.5M",
@@ -264,7 +264,7 @@ const T = {
     "cons.title.a": "Consultoría en",
     "cons.title.b": "IA agéntica",
     "cons.title.c": "para empresas que piensan en grande.",
-    "cons.lead": "No vendemos herramientas. Nos sentamos con la dirección, mapeamos dónde tu operación pierde dinero y construimos una infraestructura de IA vertical — a medida de tu sector, tus reglas y tus datos.",
+    "cons.lead": "No vendemos herramientas. Nos sentamos con la dirección, mapeamos dónde tu operación pierde dinero y construimos una infraestructura de IA vertical, a medida de tu sector, tus reglas y tus datos.",
     "cons.cta": "Agendar consultoría",
     "cons.system.active": "Sistema agéntico activo",
     "cons.metrics": "req/min · 99.8% uptime",
@@ -296,7 +296,7 @@ const T = {
     "plat.eyebrow": "Plataforma Konnecta",
     "plat.title.a": "Todo conectado.",
     "plat.title.b": "En una pantalla.",
-    "plat.sub": "Ventas, atención, operación y datos hablando entre sí — sin que abras 7 pestañas.",
+    "plat.sub": "Ventas, atención, operación y datos hablando entre sí, sin que abras 7 pestañas.",
 
     // CASE
     "case.eyebrow": "Caso Konnecta",
@@ -308,10 +308,10 @@ const T = {
 
     // STACK
     "stack.eyebrow": "Stack",
-    "stack.title.a": "IA agéntica,",
-    "stack.title.b": "OpenClaw",
-    "stack.title.c": "y lo mejor del mercado.",
-    "stack.sub": "Trabajamos con agentes autónomos, multi-modelo y orquestación avanzada. Sin atadura a proveedor — solo con lo que funciona.",
+    "stack.title.a": "IA agéntica de verdad,",
+    "stack.title.b": "con lo que existe de mejor",
+    "stack.title.c": "en el mundo.",
+    "stack.sub": "Trabajamos con agentes autónomos, multi-modelo y orquestación avanzada. No nos casamos con ningún proveedor, usamos solo lo que trae resultado.",
 
     // TESTIMONIALS
     "tst.eyebrow": "Quién ya está corriendo",
@@ -337,7 +337,7 @@ const T = {
     "form.size": "Tamaño de la empresa",
     "form.size.opts": ["Seleccionar...", "Hasta 10 empleados", "11 a 50", "51 a 200", "201 a 500", "Más de 500"],
     "form.area": "¿Qué necesitás resolver?",
-    "form.area.opts": ["Consultoría estratégica en IA", "Agente de IA / SDR automatizado", "Automatización en WhatsApp", "CRM con IA", "Calificación de leads", "Integración de sistemas (ERP)", "Aún no sé — quiero conversar"],
+    "form.area.opts": ["Consultoría estratégica en IA", "Agente de IA / SDR automatizado", "Automatización en WhatsApp", "CRM con IA", "Calificación de leads", "Integración de sistemas (ERP)", "Aún no sé, quiero conversar"],
     "form.message": "Contame tu escenario (opcional)",
     "form.consent": "Acepto recibir contacto sobre mi solicitud",
     "form.submit": "Enviar a Wagner",
@@ -523,7 +523,7 @@ function LeadForm({ open, onClose }) {
     try {
       const body = new FormData();
       Object.entries(data).forEach(([k, v]) => body.append(k, String(v)));
-      body.append("_subject", `[Konnecta Lead] ${data.name} — ${data.company || "—"}`);
+      body.append("_subject", `[Konnecta Lead] ${data.name} · ${data.company || "sem empresa"}`);
       body.append("_replyto", data.email);
       body.append("language", lang);
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -628,7 +628,7 @@ function LeadForm({ open, onClose }) {
               <div>
                 <label style={labelStyle}>{t("form.area")}</label>
                 <select style={inputStyle()} value={data.area} onChange={(e) => update("area", e.target.value)}>
-                  <option value="" style={{ background: "#0a0a0a" }}>—</option>
+                  <option value="" style={{ background: "#0a0a0a" }}>Selecione…</option>
                   {t("form.area.opts").map((o, i) => <option key={i} value={o} style={{ background: "#0a0a0a" }}>{o}</option>)}
                 </select>
               </div>
