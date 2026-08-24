@@ -122,10 +122,10 @@ const T = {
 
     // CASE
     "case.eyebrow": "Case Konnecta",
-    "case.title.a": "Clínica Vitalis:",
+    "case.title.a": "Clínica odontológica:",
     "case.title.b": "+312% em agendamentos em 90 dias.",
     "case.client": "Cliente",
-    "case.client.name": "Clínica Vitalis",
+    "case.client.name": "Clínica odontológica",
     "case.body": "Implementamos um agente no WhatsApp que responde, qualifica e marca consulta sozinho. Time humano só entra quando precisa fechar tratamento. Em 90 dias o agendamento triplicou e a clínica reduziu equipe de atendimento em 40%.",
 
     // STACK
@@ -300,10 +300,10 @@ const T = {
 
     // CASE
     "case.eyebrow": "Caso Konnecta",
-    "case.title.a": "Clínica Vitalis:",
+    "case.title.a": "Clínica odontológica:",
     "case.title.b": "+312% en agendamientos en 90 días.",
     "case.client": "Cliente",
-    "case.client.name": "Clínica Vitalis",
+    "case.client.name": "Clínica odontológica",
     "case.body": "Implementamos un agente en WhatsApp que responde, califica y agenda consultas solo. El equipo humano entra solo cuando hay que cerrar tratamiento. En 90 días los agendamientos se triplicaron y la clínica redujo el equipo de atención un 40%.",
 
     // STACK

@@ -53,16 +53,16 @@ function Navbar() {
 // === HERO ===
 const HERO_ROTATE = {
   pt: [
-    "que vende enquanto você dorme.",
-    "que atende mil clientes ao mesmo tempo.",
-    "que qualifica antes de você acordar.",
+    "que vende sozinho.",
+    "que atende sem parar.",
+    "que qualifica seus leads.",
     "que nunca tira férias.",
   ],
   es: [
-    "que vende mientras dormís.",
-    "que atiende a mil clientes a la vez.",
-    "que califica antes de que despiertes.",
-    "que nunca se toma vacaciones.",
+    "que vende solo.",
+    "que atiende sin parar.",
+    "que califica tus leads.",
+    "que nunca descansa.",
   ],
 };
 
@@ -98,9 +98,12 @@ function Hero() {
             }}>
               <span style={{ display: "block", color: "#fff" }}>{t("hero.title.2")}</span>
               <span style={{
-                display: "block",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                overflow: "hidden",
                 color: "var(--lime)",
-                minHeight: "2.1em",     /* reserva 2 linhas para evitar jump */
+                height: "2.2em",        /* altura fixa: nunca empurra o conteudo */
                 lineHeight: 1.05,
               }}>
                 <TextType
@@ -284,9 +287,12 @@ const CLIENT_LOGOS = [
   { src: "assets/clientes/macedonia.png", alt: "Macedônia", h: 46 },
   { src: "assets/clientes/grupo-capitao.png", alt: "Grupo Capitão", h: 54 },
   { src: "assets/clientes/wonder-park.png", alt: "Wonder Park Foz", h: 50 },
+  { src: "assets/clientes/cotripar.png", alt: "Grupo Cotripar", h: 44 },
   { src: "assets/clientes/guarda-volume.png", alt: "Guarda Volume", h: 30 },
   { src: "assets/clientes/odonto.png", alt: "Odonto Próteses", h: 48 },
   { src: "assets/clientes/aurora.png", alt: "Aurora Patrimonial", h: 36 },
+  { src: "assets/clientes/oga.png", alt: "Óga", h: 46 },
+  { src: "assets/clientes/terrazzo.png", alt: "Terrazzo RoofTop Bar", h: 34 },
 ];
 
 function LogoStrip() {
@@ -908,7 +914,7 @@ function PlatformLeads({ lang }) {
 
   const leads = [
     { name: "Empresa Helix", source: "WhatsApp", stage: lang === "pt" ? "Proposta" : "Propuesta", score: 94, value: "R$ 48k" },
-    { name: "Vitalis Saúde", source: lang === "pt" ? "Orgânico" : "Orgánico", stage: lang === "pt" ? "Reunião" : "Reunión", score: 89, value: "R$ 32k" },
+    { name: "Clínica Vida", source: lang === "pt" ? "Orgânico" : "Orgánico", stage: lang === "pt" ? "Reunião" : "Reunión", score: 89, value: "R$ 32k" },
     { name: "Arcline Tech", source: "Ads", stage: lang === "pt" ? "Negociação" : "Negociación", score: 87, value: "R$ 76k" },
     { name: "Luminary Co.", source: "WhatsApp", stage: lang === "pt" ? "Qualificado" : "Calificado", score: 78, value: "R$ 24k" },
     { name: "Northwind Imp.", source: lang === "pt" ? "Indicação" : "Referido", stage: lang === "pt" ? "Reunião" : "Reunión", score: 72, value: "R$ 58k" },
@@ -1496,7 +1502,7 @@ function CaseStudy() {
               </h2>
               <div style={{ marginBottom: 32 }}>
                 <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 8 }}>{L.client}</div>
-                <div className="display" style={{ fontSize: 22, marginBottom: 16 }}>Clínica Vitalis</div>
+                <div className="display" style={{ fontSize: 22, marginBottom: 16 }}>Clínica odontológica</div>
                 <p style={{ fontSize: 15, color: "var(--text-dim)", lineHeight: 1.6 }}>
                   {L.body}
                 </p>
@@ -1717,11 +1723,11 @@ function Stack() {
 function Testimonials() {
   const { lang } = useI18n();
   const items = lang === "pt" ? [
-    { q: "A Konnecta transformou completamente nossos processos. O retorno do investimento veio em menos de 3 meses. Trabalho 24h por dia gerando resultados reais.", who: "Dr. Roberto Silva", role: "Clínica Vitalis" },
+    { q: "A Konnecta transformou completamente nossos processos. O retorno do investimento veio em menos de 3 meses. Trabalho 24h por dia gerando resultados reais.", who: "Dr. Roberto Silva", role: "Clínica odontológica" },
     { q: "Profissionalismo, tecnologia e resultados. Nossa empresa nunca esteve tão preparada para escalar com previsibilidade.", who: "Mariana Santos", role: "Boutique D'Luxo" },
     { q: "Implementação rápida, integração perfeita. Hoje temos uma máquina de vendas funcionando sem precisar de intervenção manual constante.", who: "Carlos Mendes", role: "Construtora Proja" },
   ] : [
-    { q: "Konnecta transformó completamente nuestros procesos. El retorno de la inversión llegó en menos de 3 meses. Trabajo 24h al día generando resultados reales.", who: "Dr. Roberto Silva", role: "Clínica Vitalis" },
+    { q: "Konnecta transformó completamente nuestros procesos. El retorno de la inversión llegó en menos de 3 meses. Trabajo 24h al día generando resultados reales.", who: "Dr. Roberto Silva", role: "Clínica odontológica" },
     { q: "Profesionalismo, tecnología y resultados. Nuestra empresa nunca estuvo tan preparada para escalar con previsibilidad.", who: "Mariana Santos", role: "Boutique D'Luxo" },
     { q: "Implementación rápida, integración perfecta. Hoy tenemos una máquina de ventas funcionando sin necesidad de intervención manual constante.", who: "Carlos Mendes", role: "Construtora Proja" },
   ];
