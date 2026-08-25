@@ -90,22 +90,14 @@ function Hero() {
         <div>
           <Reveal delay={120}>
             <h1 className="display hero-title" style={{
-              fontSize: "clamp(40px, 4.6vw, 64px)",
+              fontSize: "clamp(40px, 4.35vw, 56px)",
               lineHeight: 1.05,
               letterSpacing: "-0.025em",
               marginBottom: 28,
-              maxWidth: 580,
+              maxWidth: 620,
             }}>
               <span style={{ display: "block", color: "#fff" }}>{t("hero.title.2")}</span>
-              <span style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flex-start",
-                overflow: "hidden",
-                color: "var(--lime)",
-                height: "2.2em",        /* altura fixa: nunca empurra o conteudo */
-                lineHeight: 1.05,
-              }}>
+              <span className="hero-rotate" style={{ color: "var(--lime)", lineHeight: 1.05 }}>
                 <TextType
                   text={HERO_ROTATE[lang]}
                   typingSpeed={48}
@@ -149,7 +141,7 @@ function Hero() {
       <style>{`
         @media (max-width: 1024px) {
           .hero-grid { grid-template-columns: 1fr !important; }
-          .hero-title { font-size: clamp(40px, 8vw, 64px) !important; }
+          .hero-title { font-size: clamp(40px, 7vw, 56px) !important; }
         }
       `}</style>
     </section>
@@ -293,6 +285,8 @@ const CLIENT_LOGOS = [
   { src: "assets/clientes/aurora.png", alt: "Aurora Patrimonial", h: 36 },
   { src: "assets/clientes/oga.png", alt: "Óga", h: 46 },
   { src: "assets/clientes/terrazzo.png", alt: "Terrazzo RoofTop Bar", h: 34 },
+  { src: "assets/clientes/hokkai.png", alt: "Hokkai Sushi", h: 30 },
+  { src: "assets/clientes/595-lounge.png", alt: "+595 Lounge", h: 52 },
 ];
 
 function LogoStrip() {

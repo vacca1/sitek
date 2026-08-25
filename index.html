@@ -270,6 +270,18 @@
   .link-arrow:hover .arrow-i { transform: translate(2px, -2px); }
   .arrow-i { transition: transform 0.2s; }
 
+  /* hero: linha rotativa com altura travada e sem quebra de linha.
+     Desktop cabe numa linha so (nowrap); no mobile permite 2 linhas, mas a
+     caixa tem altura fixa para o conteudo abaixo nunca se mexer. */
+  .hero-rotate {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 1.15em;
+  }
+
   /* ============== RESPONSIVE ============== */
   /* Tablet & smaller */
   @media (max-width: 1024px) {
@@ -296,6 +308,8 @@
   /* Mobile */
   @media (max-width: 768px) {
     .step-num { font-size: 56px; }
+    /* frase rotativa pode ocupar 2 linhas, mas com altura reservada fixa */
+    .hero-rotate { white-space: normal; height: 2.3em; }
     /* spacious section padding shrinks */
     section { padding-left: 20px !important; padding-right: 20px !important; }
     /* large titles cap */
