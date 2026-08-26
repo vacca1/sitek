@@ -276,7 +276,7 @@ function Sparkline({ data }) {
 // Real client logos (white, transparent PNGs). Per-logo optical height keeps
 // wide wordmarks and circular badges visually balanced in the marquee.
 const CLIENT_LOGOS = [
-  { src: "assets/clientes/macedonia.png", alt: "Macedônia", h: 46 },
+  { src: "assets/clientes/macedonia.png", alt: "Macedônia", h: 52 },
   { src: "assets/clientes/grupo-capitao.png", alt: "Grupo Capitão", h: 54 },
   { src: "assets/clientes/wonder-park.png", alt: "Wonder Park Foz", h: 50 },
   { src: "assets/clientes/cotripar.png", alt: "Grupo Cotripar", h: 44 },
@@ -290,21 +290,22 @@ const CLIENT_LOGOS = [
 
 function LogoStrip() {
   const { lang } = useI18n();
+  const [stripRef, stripInView] = useInView({ threshold: 0.35 });
   return (
     <section style={{ padding: "60px 32px", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", textAlign: "center", textTransform: "uppercase", letterSpacing: "0.2em", marginBottom: 36 }}>
           {lang === "pt" ? "Empresas que confiam na Konnecta" : "Empresas que confían en Konnecta"}
         </div>
-        <div style={{ overflow: "hidden", maskImage: "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)" }}>
-          <div className="marquee-track" style={{ display: "flex", gap: 72, width: "max-content", alignItems: "center" }}>
+        <div ref={stripRef} style={{ overflow: "hidden", maskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)" }}>
+          <div className={`marquee-track ${stripInView ? "is-running" : ""}`} style={{ display: "flex", gap: 72, width: "max-content", alignItems: "center" }}>
             {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
               <div key={i} className="client-logo" style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 64, flexShrink: 0 }}>
                 <img
                   src={logo.src}
                   alt={logo.alt}
                   draggable={false}
-                  style={{ height: logo.h, width: "auto", maxWidth: 210, objectFit: "contain", opacity: 0.72, transition: "opacity 0.3s ease", userSelect: "none" }}
+                  style={{ height: logo.h, width: "auto", maxWidth: 210, objectFit: "contain", opacity: 0.8, transition: "opacity 0.3s ease", userSelect: "none" }}
                 />
               </div>
             ))}

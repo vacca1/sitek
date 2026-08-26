@@ -112,7 +112,15 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
-  .marquee-track { animation: marquee 40s linear infinite; }
+  /* A esteira so comeca a andar quando entra na tela, e ainda segura 1.2s
+     parada: assim a primeira logo aparece legivel em vez de ja estar saindo.
+     A margem inicial tira a primeira logo de dentro do fade da esquerda. */
+  .marquee-track {
+    animation: marquee 40s linear 1.2s infinite;
+    animation-play-state: paused;
+    margin-left: 9%;
+  }
+  .marquee-track.is-running { animation-play-state: running; }
   .client-logo:hover img { opacity: 1 !important; }
 
   /* Pulse */
