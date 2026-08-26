@@ -276,6 +276,8 @@ function Sparkline({ data }) {
 // Real client logos (white, transparent PNGs). Per-logo optical height keeps
 // wide wordmarks and circular badges visually balanced in the marquee.
 const CLIENT_LOGOS = [
+  { src: "assets/clientes/hokkai.png", alt: "Hokkai Sushi", h: 30 },
+  { src: "assets/clientes/595-lounge.png", alt: "+595 Lounge", h: 52 },
   { src: "assets/clientes/macedonia.png", alt: "Macedônia", h: 46 },
   { src: "assets/clientes/grupo-capitao.png", alt: "Grupo Capitão", h: 54 },
   { src: "assets/clientes/wonder-park.png", alt: "Wonder Park Foz", h: 50 },
@@ -285,8 +287,6 @@ const CLIENT_LOGOS = [
   { src: "assets/clientes/aurora.png", alt: "Aurora Patrimonial", h: 36 },
   { src: "assets/clientes/oga.png", alt: "Óga", h: 46 },
   { src: "assets/clientes/terrazzo.png", alt: "Terrazzo RoofTop Bar", h: 34 },
-  { src: "assets/clientes/hokkai.png", alt: "Hokkai Sushi", h: 30 },
-  { src: "assets/clientes/595-lounge.png", alt: "+595 Lounge", h: 52 },
 ];
 
 function LogoStrip() {
