@@ -1,23 +1,29 @@
 // Konnecta — shared components (logo, icons, primitives)
 const { useState, useEffect, useRef, useMemo } = React;
 
+// Os PNGs da marca ficam em /assets, que o _headers manda cachear por um ano
+// como immutable. Quando a arte muda, o arquivo continua com o mesmo nome e o
+// visitante antigo veria a logo velha: subir LOGO_V e o que obriga a recarga.
+const LOGO_V = "?v=2";
+
 // === KONNECTA WORDMARK ===
-// Renders the official wordmark image. The aspect ratio is ~7.6:1.
+// Renders the official wordmark image. The aspect ratio is ~3:1.
 // `size` defines the height in px; width auto-scales.
 // `color`: '#fff' (default), '#CBFF00' (lime), '#000' — picks the correct PNG variant.
 function KonnectaWord({ size = 18, color = "#fff" }) {
   const c = (color || "").toString().toLowerCase();
   let src;
   if (c === "#cbff00" || c === "cbff00" || c === "lime" || c.includes("203,255")) {
-    src = "assets/konnecta-wordmark-lime.png";
+    src = "assets/konnecta-wordmark-lime.png" + LOGO_V;
   } else if (c === "#000" || c === "#000000" || c === "black") {
-    src = "assets/konnecta-wordmark-black.png";
+    src = "assets/konnecta-wordmark-black.png" + LOGO_V;
   } else {
-    src = "assets/konnecta-wordmark-white.png";
+    src = "assets/konnecta-wordmark-white.png" + LOGO_V;
   }
-  // The PNG is 829 x 137 (with 16px padding). Use height-based sizing.
-  // Original wordmark height ≈ 105px; we scale to size * 1.6 for visual parity with text wordmarks.
-  const h = size * 1.55;
+  // O wordmark novo e mais encorpado e bem menos largo que o antigo
+  // (proporcao ~3:1 contra ~8:1), entao precisa de mais altura para manter a
+  // mesma presenca ao lado do menu. PNG de 1182 x 400 com padding de 4%.
+  const h = size * 2.3;
   return (
     <img
       src={src}
@@ -39,11 +45,11 @@ function KMark({ size = 24, color = "#CBFF00", bg }) {
   const c = (color || "").toString().toLowerCase();
   let src;
   if (c === "#fff" || c === "#ffffff" || c === "white") {
-    src = "assets/konnecta-k-white.png";
+    src = "assets/konnecta-k-white.png" + LOGO_V;
   } else if (c === "#000" || c === "#000000" || c === "black") {
-    src = "assets/konnecta-k-black.png";
+    src = "assets/konnecta-k-black.png" + LOGO_V;
   } else {
-    src = "assets/konnecta-k-lime.png";
+    src = "assets/konnecta-k-lime.png" + LOGO_V;
   }
   // The K asset is square-ish (~1.1:1). Use size as height.
   return (

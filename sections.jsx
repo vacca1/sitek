@@ -277,20 +277,23 @@ function Sparkline({ data }) {
 // wide wordmarks and circular badges visually balanced in the marquee.
 const CLIENT_LOGOS = [
   { src: "assets/clientes/macedonia.png", alt: "Macedônia", h: 52 },
-  { src: "assets/clientes/grupo-capitao.png", alt: "Grupo Capitão", h: 54 },
+  { src: "assets/clientes/roda-rico.png", alt: "Roda Rico São Paulo", h: 50 },
   { src: "assets/clientes/wonder-park.png", alt: "Wonder Park Foz", h: 50 },
+  { src: "assets/clientes/grupo-capitao.png", alt: "Grupo Capitão", h: 54 },
   { src: "assets/clientes/cotripar.png", alt: "Grupo Cotripar", h: 44 },
   { src: "assets/clientes/hokkai.png", alt: "Hokkai Sushi", h: 30 },
   { src: "assets/clientes/oga.png", alt: "Óga", h: 46 },
   { src: "assets/clientes/595-lounge.png", alt: "+595 Lounge", h: 52 },
   { src: "assets/clientes/terrazzo.png", alt: "Terrazzo RoofTop Bar", h: 34 },
-  { src: "assets/clientes/odonto.png", alt: "Odonto Próteses", h: 48 },
-  { src: "assets/clientes/aurora.png", alt: "Aurora Patrimonial", h: 36 },
+  { src: "assets/clientes/costafizinus.png", alt: "Costafizinus", h: 24 },
 ];
 
 function LogoStrip() {
   const { lang } = useI18n();
-  const [stripRef, stripInView] = useInView({ threshold: 0.35 });
+  // So conta como "na tela" quando a esteira esta na faixa central da janela:
+  // em telas altas ela aparecia de relance no rodape da dobra e a animacao
+  // comecava antes de o visitante chegar nela.
+  const [stripRef, stripInView] = useInView({ threshold: 0.5, rootMargin: "-20% 0px -20% 0px" });
   return (
     <section style={{ padding: "60px 32px", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -1804,6 +1807,7 @@ function FinalCTA() {
           </Reveal>
           <Reveal delay={150}>
             <PortraitCard />
+            <Credentials />
           </Reveal>
         </div>
 
@@ -1836,6 +1840,37 @@ function FinalCTA() {
       </div>
     </section>
     </>
+  );
+}
+
+// Selos de formacao exibidos logo abaixo do retrato do fundador.
+// `img` fica vazio ate a arte oficial de cada selo entrar em assets/credenciais/.
+function Credentials() {
+  const { lang } = useI18n();
+  const items = [
+    { img: "", eyebrow: "Anthropic · Foundations", title: "Claude Certified Architect" },
+    { img: "", eyebrow: "MIT", title: lang === "pt" ? "Inteligência Artificial Agêntica" : "Inteligencia Artificial Agéntica" },
+  ];
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 16 }} data-grid="2">
+      {items.map((c, i) => (
+        <div key={i} style={{
+          display: "flex", alignItems: "center", gap: 12,
+          padding: "14px 16px", borderRadius: 14,
+          border: "1px solid var(--line)", background: "rgba(255,255,255,0.02)",
+        }}>
+          {c.img ? (
+            <img src={c.img} alt={c.title} draggable={false} style={{ height: 34, width: "auto", flexShrink: 0 }} />
+          ) : (
+            <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--lime)", flexShrink: 0 }}></span>
+          )}
+          <div style={{ minWidth: 0 }}>
+            <div className="mono" style={{ fontSize: 9.5, color: "var(--text-faint)", textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 3 }}>{c.eyebrow}</div>
+            <div style={{ fontSize: 13, color: "#fff", lineHeight: 1.25 }}>{c.title}</div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 
