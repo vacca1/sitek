@@ -1848,7 +1848,7 @@ function FinalCTA() {
 function Credentials() {
   const { lang } = useI18n();
   const items = [
-    { img: "", eyebrow: "Anthropic · Foundations", title: "Claude Certified Architect" },
+    { img: "", eyebrow: "Foundations", title: "Claude Certified Architect" },
     { img: "", eyebrow: "MIT", title: lang === "pt" ? "Inteligência Artificial Agêntica" : "Inteligencia Artificial Agéntica" },
   ];
   return (

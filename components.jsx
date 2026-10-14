@@ -4,7 +4,7 @@ const { useState, useEffect, useRef, useMemo } = React;
 // Os PNGs da marca ficam em /assets, que o _headers manda cachear por um ano
 // como immutable. Quando a arte muda, o arquivo continua com o mesmo nome e o
 // visitante antigo veria a logo velha: subir LOGO_V e o que obriga a recarga.
-const LOGO_V = "?v=2";
+const LOGO_V = "?v=3";
 
 // === KONNECTA WORDMARK ===
 // Renders the official wordmark image. The aspect ratio is ~3:1.
@@ -20,10 +20,9 @@ function KonnectaWord({ size = 18, color = "#fff" }) {
   } else {
     src = "assets/konnecta-wordmark-white.png" + LOGO_V;
   }
-  // O wordmark novo e mais encorpado e bem menos largo que o antigo
-  // (proporcao ~3:1 contra ~8:1), entao precisa de mais altura para manter a
-  // mesma presenca ao lado do menu. PNG de 1182 x 400 com padding de 4%.
-  const h = size * 2.3;
+  // PNG de 2889 x 400 com 4% de padding (proporcao 7.2:1, perto do arquivo
+  // antigo), entao a mesma escala de antes mantem o tamanho na tela.
+  const h = size * 1.55;
   return (
     <img
       src={src}
