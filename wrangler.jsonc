@@ -4,5 +4,11 @@
   "compatibility_date": "2026-04-28",
   "assets": {
     "directory": "."
-  }
+  },
+  // Dominios proprios do worker. Ja foram anexados pela API, mas ficam aqui
+  // para que o deploy os recrie sozinho se alguem apagar no painel.
+  "routes": [
+    { "pattern": "konnectaia.com.br", "custom_domain": true },
+    { "pattern": "www.konnectaia.com.br", "custom_domain": true }
+  ]
 }
